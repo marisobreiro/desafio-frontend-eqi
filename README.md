@@ -38,11 +38,11 @@ Acesse o repositório da API em [desafio-fake-api](https://github.com/eqi-invest
 O usuário pode realizar a simulação escolhendo os tipos de rendimento e indexação --em caso de dúvida, o mesmo pode verificar o significado dos tipos ao mover o mouse em cima do título dos botões e ícone de informação. 
 Em seguida deve inserir o aporte inicial, aporte mensal, prazo e rentabilidade esperada.
 
-(https://i.imgur.com/gR2uGFR.png)
+![https://i.imgur.com/gR2uGFR.png]
 
  Os dados são obrigatórios e devem ser informados para a simulação.
 
- (https://i.imgur.com/eZMScPI.png)
+ ![https://i.imgur.com/eZMScPI.png]
 
 Os campos de IPCA e CDI são pré-preenchidos através dos dados da API. 
 
@@ -54,7 +54,7 @@ Ao solicitar a simulação pelo botão "Simular", o usuário terá as informaç�
 - Valor total investido 
 - Ganho líquido 
 
-(https://i.imgur.com/smV41k6.png)
+![https://i.imgur.com/smV41k6.png]
 
 O resultado também exibe um gráfico com os valores esperados ao longo dos meses obtidos pela API.
 
@@ -64,18 +64,15 @@ As quebras responsivas foram pensadas para Desktops, conforme prints anteriores 
 
 ### Smartphones
 
-(https://i.imgur.com/7pOMdZt.png)
+![https://i.imgur.com/7pOMdZt.png]
 
-(https://i.imgur.com/MCYueZF.png)
+![https://i.imgur.com/MCYueZF.png]
 
-(https://i.imgur.com/sNKt3sq.png)
+![https://i.imgur.com/sNKt3sq.png]
 
 
 ### Tablets
 
-(https://i.imgur.com/gjgVQcc.png)
+![https://i.imgur.com/gjgVQcc.png]
 
-(https://i.imgur.com/t4tOMQf.png)
-
-
-
+![https://i.imgur.com/t4tOMQf.png]
