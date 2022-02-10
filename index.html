@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Invista agora. Faça simulações e descubra a melhor forma do seu dinheiro render.">
+    <meta name="robots" content="all, follow">
+    <title>Calculadora de Investimentos</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">    
+    <!--CSS-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/simulator/main.css">
+    <link rel="stylesheet" href="css/simulator/buttons.css">
+    <link rel="stylesheet" href="css/simulator/radio.css">
+    <link rel="stylesheet" href="css/simulator/inputs.css">
+    <link rel="stylesheet" href="css/dashboard/main.css">
+    <link rel="stylesheet" href="css/dashboard/indicadores.css">
+    <!--JS-->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+    <header class="container">
+        <h1>Simulador de Investimentos</h1>
+    </header>
+    <main class="container">
+        <!--Início do simulador de investimentos-->
+        <section id="simulator">
+            <h2>Simulador</h2>
+            <form action="" id="form"> 
+                <div id="form-columns">
+                    <div class="form-content">
+                        <!--Rendimento-->
+                        <div>
+                            <div class="radio-label" title="Modalidade de rendimento desejado a ser investido">
+                                <label for="radio">Rendimento</label>
+                                <i data-feather="alert-circle"></i>
+                            </div>
+                            <div id="radio-input" aria-required="true">
+                                <div class="radio btn-md">
+                                  <label>
+                                    <input type="radio" name="rendimento" value="bruto" class="btn-left" id="bruto" checked required>
+                                    <p>Bruto</p>
+                                  </label>
+                                </div>
+                                <div class="radio btn-md">
+                                  <label>
+                                    <input type="radio" name="rendimento" value="liquido" class="btn-right" id="liquido">
+                                    <p>Líquido</p>
+                                  </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Aporte inicial-->
+                        <div class="form-input input">
+                            <label class="input-label" for="currency">Aporte inicial</label>
+                            <input type="text" name="currency" class="money" autocomplete="off" placeholder="R$" required>
+                            <p class="error"></p>
+                        </div>
+                        <!--Prazo-->
+                        <div class="form-input input">
+                            <label class="input-label" for="">Prazo (em meses)</label>
+                            <input id="field" type="text" maxlength="2" pattern="([0-9]{2})" autocomplete="off" required/>
+                            <p class="error"></p>
+                        </div>
+                        <!--IPCA-->
+                        <div class="form-input input">
+                            <label class="input-label" for="">IPCA (ao ano)</label>
+                            <p id="ipca"></p>
+                        </div>
+                    </div>
+                    <div class="form-content">
+                        <!--Indexação-->
+                        <div class="form-input">
+                            <div class="radio-label" title="Indices que atuam na rentabilidade do investimento">
+                                <label for="button">Tipos de indexação</label>
+                                <i data-feather="alert-circle"></i>
+                            </div>
+                            <div id="radio-input" aria-required="true">
+                                <div class="radio btn-sm">
+                                  <label>
+                                    <input type="radio" name="indexacao" value="pre" class="btn-left" id="pre" checked required>
+                                    <p>PRÉ</p>
+                                  </label>
+                                </div>
+                                <div class="radio btn-sm">
+                                  <label>
+                                    <input type="radio" name="indexacao" value="pos" class="btn-middle" id="pos">
+                                    <p>POS</p>
+                                  </label>
+                                </div>
+                                <div class="radio btn-sm">
+                                    <label>
+                                      <input type="radio" name="indexacao" value="fixado" class="btn-right" id="fix">
+                                      <p>FIXADO</p>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Aporte mensal-->
+                        <div class="form-input input">
+                            <label class="input-label" for="number">Aporte mensal</label>
+                            <input type="text" name="currency" class="money" autocomplete="off" placeholder="R$" required>
+                            <p class="error"></p>
+                        </div>
+                        <!--Rentabilidade-->
+                        <div class="form-input input">
+                            <label class="input-label" for="">Rentabilidade</label>
+                            <input type="text" name="rentabilidade" class="percent" autocomplete="off" required>
+                            <p class="error"></p>
+                        </div>
+                        <!--CDI-->
+                        <div class="form-input input">
+                            <label class="input-label" for="">CDI (ao ano)</label>
+                            <p id="cdi"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-form-group">
+                    <button class="btn btn-xl btn-form" type="reset" onclick="resetDashboard()">Limpar campos</button>
+                    <button class="btn btn-xl btn-form" type="submit" form="form" id="formSubmit" onclick="simular();showDashboard();">Simular</button>
+                </div>
+            </form>
+        </section>
+        <!--Fim do simulador de investimentos-->
+        <!--Início da dashboard-->
+        <section id="dashboard">
+            <h2>Resultado da Simulação</h2>
+            <!--Indicadores-->
+            <div id="indicators">
+                <div class="indicators-boxes">
+                    <div class="box">
+                        <h3>Valor final Bruto</h3>
+                        <p id="valorbruto">R$ 15.509,27</p>
+                    </div>
+                    <div class="box">
+                        <h3>Alíquota do IR</h3>
+                        <p id="aliquota">20%</p>
+                    </div>
+                    <div class="box">
+                        <h3>Valor Pago em IR</h3>
+                        <p id="ir">R$ 1.509,27</p>
+                    </div>
+                </div>
+                <div class="indicators-boxes">
+                    <div class="box">
+                        <h3>Valor final Líquido</h3>
+                        <p id="valorliq">R$ 56.509,27</p>
+                    </div>
+                    <div class="box">
+                        <h3>Valor Total Investido</h3>
+                        <p id="valortotal">R$ 9.509.27</p>
+                    </div>
+                    <div class="box">
+                        <h3>Ganho Líquido</h3>
+                        <p id="ganholiq">R$ 47.000,00</p>
+                    </div>
+                </div>
+            </div>
+            <!--Gráfico-->
+            <div id="chart-1" style="min-height: 350px;"></div>
+            <div>
+                <canvas id="myChart"></canvas>
+              </div>
+              
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="js/jquery.mask.js"></script>
+    <script src="js/featherIcons.js"></script>
+    <script src="js/features/maskInput.js"></script>
+    <script src="js/formValidation.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/indicadores.js"></script>
+    <script src="js/simulacoes.js"></script>
+    <!--Charts-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.js"></script>
+    <script src="js/features/chartkick.js"></script>
+</body>
+</html>

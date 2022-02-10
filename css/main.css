@@ -1,0 +1,65 @@
+* {
+    --maincolor: #ed8e53;
+    --secondcolor: #6e6c6c;
+    --bkgcolor: #efefef;
+}
+
+
+body {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    justify-content: center;
+    margin: 2rem;
+    overflow: hidden;
+}
+
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    height: 78vh;
+    justify-content: space-between;
+}
+
+h1 {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.container {
+    background-color: var(--bkgcolor);
+    width: 95vw;
+}
+
+/** Feather icons **/
+
+.feather {
+    height: 0.8rem;
+    width: 0.8rem;
+}
+
+/** Media Queries **/
+
+/* Smartphones and Tablets */
+
+@media screen and (max-width: 912px) {
+    body {
+        overflow: scroll;
+    }
+
+    main {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+
+
+
+

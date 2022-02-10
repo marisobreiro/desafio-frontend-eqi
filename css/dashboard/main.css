@@ -1,0 +1,20 @@
+#dashboard {
+    margin-right: 3rem;
+    display: none;
+    flex-direction: column;
+    width: 50vw;
+}
+
+#dashboard h2 {
+    margin-left: 1rem;
+}
+
+/* Smartphones and Tablets */
+
+@media screen and (max-width: 912px) {
+
+    #dashboard {
+        margin: 3rem 0;
+        width: 80vw !important;
+    }
+}

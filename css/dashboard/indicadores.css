@@ -1,0 +1,62 @@
+#indicators {
+    display: flex;
+    flex-direction: column;
+}
+
+.indicators-boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.3);
+    margin: 1rem;
+    width: 15vw;
+    height: 10vh;
+}
+
+#valorliq, #ganholiq {
+    color: green;
+    font-weight: 700;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 416px) {
+
+    .indicators-boxes {
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        height: 10vh;
+        width: 60vw !important;
+    }
+}
+
+@media screen and (max-width: 912px) {
+
+    #indicators {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .indicators-boxes {
+        align-items: center;
+        display: flex;
+        justify-content: ce;
+    }
+
+    .box {
+        width: 23vw;
+    }
+}
